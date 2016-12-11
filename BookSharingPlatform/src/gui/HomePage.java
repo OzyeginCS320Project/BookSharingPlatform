@@ -1,49 +1,73 @@
 package gui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class HomePage {
-	
-		private JTextField userId;
-		private JPasswordField passcode;
-		
-		private JLabel userLabel;
-		private JLabel passwordLabel;
-		
-		private String username;
-		private String password;
-		
-		
+
+	private boolean isValidUser=true;
+
+	private JTextField userId;
+	private JPasswordField passcode;
+
+	private JLabel userLabel;
+	private JLabel passwordLabel;
+
+	private String username;
+	private String password;
+
+	private JFrame frame;
+
+	private JButton displayBookButton;
+
+	private JButton displayMessageButton;
+
+	private JButton searchBookButton;
+
+	private JPanel optionPanel;
+
+	private JLabel welcome;
+
+	private JPanel textPanel;
+
+
 
 	public String getUsername() {
-			return username;
-		}
+		return username;
+	}
 
 
 
-		public void setUsername(String username) {
-			this.username = username;
-		}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 
 
-		public String getPassword() {
-			return password;
-		}
+	public String getPassword() {
+		return password;
+	}
 
 
 
-		public void setPassword(String password) {
-			this.password = password;
-		}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 
 
-	public void createLoginFrame(){
+	public void createLoginPage(){
 		userId = new JTextField();
 		passcode = new JPasswordField();
 
@@ -56,17 +80,51 @@ public class HomePage {
 		username=userId.getText();
 
 		password =  new String(passcode.getPassword());
-	
-		
-	}
-	
-	
-	
-	//USERNAME AND PASSWORD CHECK-- hangi package?
-	
-	public boolean isValidUser(String username,String password){
-		
-		return false;
+		if(checkValidationOfUser( username, password)) createHomePage();
+
 	}
 
+
+
+	//USERNAME AND PASSWORD CHECK-- hangi package?
+
+	public boolean checkValidationOfUser(String username,String password){
+
+		return true;
+	}
+
+
+
+	public void createHomePage(){
+
+		frame =new JFrame("Book Sharing Platform");
+		frame.setVisible(true);
+		frame.setSize(700, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		optionPanel = new JPanel();
+		textPanel=new JPanel();
+		optionPanel.setBackground(Color.GRAY);
+
+		welcome=new JLabel("WELCOME "+username.toUpperCase()+" !");
+		welcome.setForeground(Color.PINK);
+		welcome.setFont(new Font("Courier New", Font.BOLD, 50));
+
+		displayBookButton =new JButton("Display Your Books");
+		displayBookButton.setSize(100,100);
+		displayMessageButton =new JButton("Display Your Messages");
+		searchBookButton =new JButton("Search a Book");
+
+
+		optionPanel.setSize(200,100);
+		frame.add(optionPanel,BorderLayout.SOUTH);
+		frame.add(textPanel,BorderLayout.NORTH);
+		textPanel.add(welcome);
+
+		optionPanel.add(displayBookButton,new GridLayout());
+		optionPanel.add(displayMessageButton);
+		optionPanel.add(searchBookButton);
+
+
+	}
 }
