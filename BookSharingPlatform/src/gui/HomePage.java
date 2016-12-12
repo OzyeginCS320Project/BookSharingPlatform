@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+
 public class HomePage {
 
 	private boolean isValidUser=true;
@@ -29,11 +30,11 @@ public class HomePage {
 
 	private JFrame frame;
 
-	private JButton displayBookButton;
+	static JButton displayBookButton;
 
-	private JButton displayMessageButton;
+	static JButton displayMessageButton;
 
-	private JButton searchBookButton;
+	static JButton searchBookButton;
 
 	private JPanel optionPanel;
 
@@ -41,29 +42,6 @@ public class HomePage {
 
 	private JPanel textPanel;
 
-
-
-	public String getUsername() {
-		return username;
-	}
-
-
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-
-
-	public String getPassword() {
-		return password;
-	}
-
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 
 
@@ -115,8 +93,6 @@ public class HomePage {
 		displayMessageButton =new JButton("Display Your Messages");
 		searchBookButton =new JButton("Search a Book");
 
-
-		optionPanel.setSize(200,100);
 		frame.add(optionPanel,BorderLayout.SOUTH);
 		frame.add(textPanel,BorderLayout.NORTH);
 		textPanel.add(welcome);
@@ -124,6 +100,10 @@ public class HomePage {
 		optionPanel.add(displayBookButton,new GridLayout());
 		optionPanel.add(displayMessageButton);
 		optionPanel.add(searchBookButton);
+		
+		displayBookButton.addActionListener(new ButtonClicked());
+		displayMessageButton.addActionListener(new ButtonClicked());
+		searchBookButton.addActionListener(new ButtonClicked());
 
 
 	}
