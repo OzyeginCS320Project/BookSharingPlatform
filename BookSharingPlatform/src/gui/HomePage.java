@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -41,6 +42,8 @@ public class HomePage {
 	private JLabel welcome;
 
 	private JPanel textPanel;
+
+	
 
 
 
@@ -92,6 +95,7 @@ public class HomePage {
 		displayBookButton.setSize(100,100);
 		displayMessageButton =new JButton("Display Your Messages");
 		searchBookButton =new JButton("Search a Book");
+	
 
 		frame.add(optionPanel,BorderLayout.SOUTH);
 		frame.add(textPanel,BorderLayout.NORTH);
@@ -99,12 +103,14 @@ public class HomePage {
 
 		optionPanel.add(displayBookButton,new GridLayout());
 		optionPanel.add(displayMessageButton);
+		
 		optionPanel.add(searchBookButton);
 		
 		displayBookButton.addActionListener(new ButtonClicked());
 		displayMessageButton.addActionListener(new ButtonClicked());
 		searchBookButton.addActionListener(new ButtonClicked());
 
+		
 
 	}
 }

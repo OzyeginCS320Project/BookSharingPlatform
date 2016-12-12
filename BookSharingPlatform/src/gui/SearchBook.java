@@ -6,9 +6,9 @@ public class SearchBook {
 
 
 
-	public SearchBook(String bookName, boolean isExist) {
+	public SearchBook(String bookName) {
 		this.bookName = bookName;
-		this.isExist = isExist;
+	
 	}
 
 	public String getBookName() {

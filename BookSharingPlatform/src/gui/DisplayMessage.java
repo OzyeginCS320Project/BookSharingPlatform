@@ -9,9 +9,9 @@ public class DisplayMessage {
 	private ArrayList <Message> messageList;
 
 		
-	public DisplayMessage(ArrayList<Message> messageList) {
+	public DisplayMessage() {
 	
-		this.messageList = messageList;
+	
 	}
 
 	public ArrayList<Message> getMessageList() {
@@ -25,6 +25,10 @@ public class DisplayMessage {
 	@Override
 	public String toString() {
 		return "DisplayMessage [messageList=" + messageList + "]";
+	}
+	
+	public void createMessageFrame(){
+		
 	}
 	
 	
