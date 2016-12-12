@@ -4,6 +4,7 @@ public class Message {
 	private String message;
 	private String senderId;
 	private String receiverId;
+	
 	public Message(String message, String senderId, String receiverId) {
 		
 		this.message = message;

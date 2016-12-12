@@ -18,7 +18,6 @@ import javax.swing.JTextField;
 
 public class HomePage {
 
-	private boolean isValidUser=true;
 
 	private JTextField userId;
 	private JPasswordField passcode;
@@ -31,7 +30,7 @@ public class HomePage {
 
 	private JFrame frame;
 
-	static JButton displayBookButton;
+	static JButton displayBooksButton;
 
 	static JButton displayMessageButton;
 
@@ -44,7 +43,6 @@ public class HomePage {
 	private JPanel textPanel;
 
 	
-
 
 
 
@@ -91,8 +89,8 @@ public class HomePage {
 		welcome.setForeground(Color.PINK);
 		welcome.setFont(new Font("Courier New", Font.BOLD, 50));
 
-		displayBookButton =new JButton("Display Your Books");
-		displayBookButton.setSize(100,100);
+		displayBooksButton =new JButton("Display Your Books");
+		displayBooksButton.setSize(100,100);
 		displayMessageButton =new JButton("Display Your Messages");
 		searchBookButton =new JButton("Search a Book");
 	
@@ -101,12 +99,12 @@ public class HomePage {
 		frame.add(textPanel,BorderLayout.NORTH);
 		textPanel.add(welcome);
 
-		optionPanel.add(displayBookButton,new GridLayout());
+		optionPanel.add(displayBooksButton,new GridLayout());
 		optionPanel.add(displayMessageButton);
 		
 		optionPanel.add(searchBookButton);
 		
-		displayBookButton.addActionListener(new ButtonClicked());
+		displayBooksButton.addActionListener(new ButtonClicked());
 		displayMessageButton.addActionListener(new ButtonClicked());
 		searchBookButton.addActionListener(new ButtonClicked());
 

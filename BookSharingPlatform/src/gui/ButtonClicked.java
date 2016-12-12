@@ -1,27 +1,22 @@
 package gui;
 
-import java.awt.Color;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 public class ButtonClicked extends HomePage implements ActionListener {
 
 	
-	private JTextField bookNameText;
-	private JLabel bookLabel;
-	private String bookName;
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		 
-		if(event.getSource()==displayBookButton) {
+		if(event.getSource()==displayBooksButton) {
+			
 		//	DisplayBook frame
+			DisplayBook books=new DisplayBook();
+			books.createBookFrame();
+			
 		}
 		
 		if(event.getSource()==displayMessageButton){
@@ -34,25 +29,14 @@ public class ButtonClicked extends HomePage implements ActionListener {
 			
 			// Search Book Frame
 			
-			bookNameText = new JTextField();
-			
-			bookLabel=new JLabel("Which book whould you like to look for");
-	
-			final JComponent[] components = new JComponent[] {	bookLabel,bookNameText};
-
-			JOptionPane.showMessageDialog(null, components, "Search For A Book",  JOptionPane.PLAIN_MESSAGE);
-
-			bookName=bookNameText.getText();
-
-			
-			SearchBook search=new SearchBook(bookName);
-	
-				
-		
-			
+			SearchBook search=new SearchBook();
+			search.displaySearchScreen();
+					
 		
 		
 		}
 	}
+
+	
 
 }
