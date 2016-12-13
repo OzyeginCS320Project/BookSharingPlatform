@@ -1,17 +1,19 @@
 package gui;
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ButtonClicked extends HomePage implements ActionListener {
+public class ButtonClicked implements ActionListener {
 
 	
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		 
-		if(event.getSource()==displayBooksButton) {
+		 		
+		
+		if(event.getSource()==HomePage.getDisplayBookButton()) {
 			
 		//	DisplayBook frame
 			DisplayBook books=new DisplayBook();
@@ -19,22 +21,44 @@ public class ButtonClicked extends HomePage implements ActionListener {
 			
 		}
 		
-		if(event.getSource()==displayMessageButton){
+		if(event.getSource()==HomePage.getDisplayMessageButton()){
 					
 			DisplayMessage messages = new DisplayMessage();
 			messages.createMessageFrame();
 			
 		}
-		if(event.getSource()==searchBookButton){
+		if(event.getSource()==HomePage.getSearchBookButton()){
 			
 			// Search Book Frame
 			
 			SearchBook search=new SearchBook();
 			search.displaySearchScreen();
-					
-				
+									
+		}
+		
+		if(event.getSource()==DisplayMessage.getAccept()){
+			// if user accepts
+		}
+		
+		if(event.getSource()==DisplayMessage.getDeny()){
+			// if user denies
+		}
+		
+		
+		
+		
+		if(event.getSource()==DisplayBook.getAddBook()){
+			//if user wants to add new book
+		}
+		
+		if(event.getSource()==DisplayBook.getRemoveBook()){
+			//if user wants to remove book
 		}
 	}
+	
+	
+	
+	
 
-
+	
 }

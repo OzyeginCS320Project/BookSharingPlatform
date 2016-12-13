@@ -106,4 +106,25 @@ public class HomePage {
 		
 
 	}
+
+
+
+	public static JButton getSearchBookButton() {
+		// TODO Auto-generated method stub
+		return searchBookButton;
+	}
+
+
+
+	public static JButton getDisplayMessageButton() {
+		// TODO Auto-generated method stub
+		return displayMessageButton;
+	}
+
+
+
+	public static JButton getDisplayBookButton() {
+		// TODO Auto-generated method stub
+		return displayBooksButton;
+	}
 }

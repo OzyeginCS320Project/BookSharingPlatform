@@ -20,6 +20,8 @@ public class DisplayBook {
 	private JFrame bookFrame;
 	private JPanel bookPanel;
 	private JPanel buttonPanel;
+	private static JButton addBook;
+	private static JButton removeBook;
 
 	
 
@@ -73,8 +75,8 @@ public class DisplayBook {
 		bookFrame.getContentPane().add(bookPanel, BorderLayout.NORTH);
 		bookFrame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 		
-		JButton addBook = new JButton("ADD BOOK");
-		JButton removeBook = new JButton("REMOVE BOOK");
+		 addBook = new JButton("ADD BOOK");
+		 removeBook = new JButton("REMOVE BOOK");
 
 		buttonPanel.add(addBook);
 		buttonPanel.add(removeBook);
@@ -82,6 +84,14 @@ public class DisplayBook {
 		
 	}
 
+	public static JButton getAddBook() {
+		// TODO Auto-generated method stub
+		return addBook;
+	}
+	public static JButton getRemoveBook() {
+		// TODO Auto-generated method stub
+		return removeBook;
+		}
 
 
 }
