@@ -18,7 +18,7 @@ public class DisplayMessage {
 	private JPanel buttonPanel;
 	private static JButton acceptButton;
 	private static JButton denyButton;
-
+	private static String username;
 
 	public DisplayMessage() {
 
@@ -37,8 +37,9 @@ public class DisplayMessage {
 		return "DisplayMessage [messageList=" + messageList + "]";
 	}
 
-	public void createMessageFrame(){
-		messageFrame = new JFrame("MESSAGES");
+	public void createMessageFrame(String user){
+		username=user;
+		messageFrame = new JFrame(username.toUpperCase()+" - MESSAGES");
 		messagePanel= new JPanel();
 
 		messageFrame.setVisible(true);

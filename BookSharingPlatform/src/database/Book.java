@@ -20,6 +20,12 @@ public class Book {
 		this.userId = userId;
 		this.page = page;
 	}
+	public Book( String userId,String title) {
+		
+		this.title = title;
+			this.userId = userId;
+
+	}
 	public String getTitle() {
 		return title;
 	}

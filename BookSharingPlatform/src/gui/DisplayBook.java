@@ -16,7 +16,6 @@ import javax.swing.JTextField;
 import database.Book;
 
 
-
 public class DisplayBook {
 
 	private ArrayList<Book> bookList;
@@ -25,7 +24,6 @@ public class DisplayBook {
 	private JPanel bookPanel;
 	private JPanel buttonPanel;
 	private JTextField bookNameText;
-	private JLabel bookLabel;
 	private JTextField bookAuthorText;
 	private JTextField bookPageText;
 	private JLabel bookNameLabel;
@@ -35,10 +33,7 @@ public class DisplayBook {
 	private int bookPage;
 	private static JButton addBook;
 	private static JButton removeBook;
-	
-	final String add ="ADD";
-
-	
+	private static String username;
 
 	public DisplayBook() {
 		// TODO Auto-generated constructor stub
@@ -77,8 +72,9 @@ public class DisplayBook {
 
 	}
 
-	public void createBookFrame() {
-		bookFrame = new JFrame("BOOKS");
+	public void createBookFrame(String user) {
+		username=user;
+		bookFrame = new JFrame(username.toUpperCase()+" - BOOKS");
 		bookPanel= new JPanel();
 
 		bookFrame.setVisible(true);
@@ -98,7 +94,7 @@ public class DisplayBook {
 		 
 		buttonPanel.add(addBook);
 		buttonPanel.add(removeBook);
-
+	
 		
 	}
 
@@ -123,16 +119,41 @@ public class DisplayBook {
 
 			final JComponent[] components = new JComponent[] {	bookNameLabel,bookNameText,bookAuthorLabel,bookAuthorText,bookPageLabel,bookPageText};
 
-			JOptionPane.showMessageDialog(null, components, "Which book whould you like to add?",  JOptionPane.YES_NO_CANCEL_OPTION);
+			JOptionPane.showMessageDialog(null, components, "ADD BOOK TO YOUR LIST",  JOptionPane.YES_NO_CANCEL_OPTION);
 
 			bookName=bookNameText.getText();
 			bookAuthor=bookAuthorText.getText();
 			bookPage=Integer.parseInt(bookPageText.getText());
 			
+			Book book=new Book(username,bookName,bookAuthor,bookPage);
+			book.addBook(book);
+			
 
 
 		}
 		
+	
+	public void createRemoveBookFrame() {
+		
+		bookNameText = new JTextField();
+			
+		bookNameLabel=new JLabel("Title of the book you want to remove");
+	
+
+		final JComponent[] components = new JComponent[] {	bookNameLabel,bookNameText};
+
+		JOptionPane.showMessageDialog(null, components, "REMOVE BOOK",  JOptionPane.YES_NO_CANCEL_OPTION);
+
+		bookName=bookNameText.getText();
+		bookAuthor=bookAuthorText.getText();
+		bookPage=Integer.parseInt(bookPageText.getText());
+		
+		Book book=new Book(username,bookName);
+		book.removeBook(bookName);
+		
+
+
+	}
 	}
 
 

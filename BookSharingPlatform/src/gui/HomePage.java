@@ -23,7 +23,7 @@ public class HomePage {
 	private JLabel userLabel;
 	private JLabel passwordLabel;
 
-	private String username;
+	private static String username;
 	private String password;
 
 	private JFrame frame;
@@ -105,6 +105,18 @@ public class HomePage {
 
 		
 
+	}
+
+
+
+	public static String getUsername() {
+		return username;
+	}
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 
