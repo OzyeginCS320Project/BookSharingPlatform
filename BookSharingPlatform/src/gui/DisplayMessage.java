@@ -16,8 +16,8 @@ public class DisplayMessage {
 	private JFrame messageFrame;
 	private JPanel messagePanel;
 	private JPanel buttonPanel;
-	private static JButton accept;
-	private static JButton deny;
+	private static JButton acceptButton;
+	private static JButton denyButton;
 
 
 	public DisplayMessage() {
@@ -51,21 +51,27 @@ public class DisplayMessage {
 		messageFrame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 
 
-		 accept = new JButton("ACCEPT");
-		deny = new JButton("DENY");
+		 acceptButton = new JButton("ACCEPT");
+		denyButton = new JButton("DENY");
+		
+		 acceptButton.addActionListener(new ButtonClicked());
+		 denyButton.addActionListener(new ButtonClicked());
+		
 
-		buttonPanel.add(accept);
-		buttonPanel.add(deny);
+		buttonPanel.add(acceptButton);
+		buttonPanel.add(denyButton);
 
 	}
 
-	public static JButton getDeny() {
+	public static JButton getDenyButton() {
 		// TODO Auto-generated method stub
-		return deny;
+		return denyButton;
 	}
-	public static JButton getAccept() {
+	public static JButton getAcceptButton() {
 		// TODO Auto-generated method stub
-		return accept;
+		return acceptButton;
 	}
+
+
 
 }

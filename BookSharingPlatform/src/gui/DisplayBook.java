@@ -6,8 +6,12 @@ import java.awt.FlowLayout;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import database.Book;
 
@@ -20,8 +24,19 @@ public class DisplayBook {
 	private JFrame bookFrame;
 	private JPanel bookPanel;
 	private JPanel buttonPanel;
+	private JTextField bookNameText;
+	private JLabel bookLabel;
+	private JTextField bookAuthorText;
+	private JTextField bookPageText;
+	private JLabel bookNameLabel;
+	private JLabel bookAuthorLabel;
+	private JLabel bookPageLabel;
+	private String bookAuthor;
+	private int bookPage;
 	private static JButton addBook;
 	private static JButton removeBook;
+	
+	final String add ="ADD";
 
 	
 
@@ -78,6 +93,9 @@ public class DisplayBook {
 		 addBook = new JButton("ADD BOOK");
 		 removeBook = new JButton("REMOVE BOOK");
 
+		 addBook.addActionListener(new ButtonClicked());
+		 removeBook.addActionListener(new ButtonClicked());
+		 
 		buttonPanel.add(addBook);
 		buttonPanel.add(removeBook);
 
@@ -93,5 +111,29 @@ public class DisplayBook {
 		return removeBook;
 		}
 
+	public void createAddBookFrame() {
+	
+			bookNameText = new JTextField();
+			bookAuthorText=new JTextField();
+			bookPageText= new JTextField();
+			
+			bookNameLabel=new JLabel("Book Title");
+			bookAuthorLabel=new JLabel("Author Name");
+			bookPageLabel=new JLabel("Number of Pages");
 
-}
+			final JComponent[] components = new JComponent[] {	bookNameLabel,bookNameText,bookAuthorLabel,bookAuthorText,bookPageLabel,bookPageText};
+
+			JOptionPane.showMessageDialog(null, components, "Which book whould you like to add?",  JOptionPane.YES_NO_CANCEL_OPTION);
+
+			bookName=bookNameText.getText();
+			bookAuthor=bookAuthorText.getText();
+			bookPage=Integer.parseInt(bookPageText.getText());
+			
+
+
+		}
+		
+	}
+
+
+

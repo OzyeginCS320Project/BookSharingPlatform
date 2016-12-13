@@ -1,7 +1,7 @@
 package gui;
 
 
-import java.awt.Color;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,14 +16,14 @@ public class ButtonClicked implements ActionListener {
 		if(event.getSource()==HomePage.getDisplayBookButton()) {
 			
 		//	DisplayBook frame
-			DisplayBook books=new DisplayBook();
+		DisplayBook books=new DisplayBook();
 			books.createBookFrame();
 			
 		}
 		
 		if(event.getSource()==HomePage.getDisplayMessageButton()){
 					
-			DisplayMessage messages = new DisplayMessage();
+	DisplayMessage messages = new DisplayMessage();
 			messages.createMessageFrame();
 			
 		}
@@ -36,11 +36,14 @@ public class ButtonClicked implements ActionListener {
 									
 		}
 		
-		if(event.getSource()==DisplayMessage.getAccept()){
+		if(event.getSource()==DisplayMessage.getAcceptButton()){
+		
+	
 			// if user accepts
 		}
 		
-		if(event.getSource()==DisplayMessage.getDeny()){
+		if(event.getSource()==DisplayMessage.getDenyButton()){
+
 			// if user denies
 		}
 		
@@ -49,6 +52,9 @@ public class ButtonClicked implements ActionListener {
 		
 		if(event.getSource()==DisplayBook.getAddBook()){
 			//if user wants to add new book
+			
+			DisplayBook book=new DisplayBook();
+			book.createAddBookFrame();
 		}
 		
 		if(event.getSource()==DisplayBook.getRemoveBook()){
