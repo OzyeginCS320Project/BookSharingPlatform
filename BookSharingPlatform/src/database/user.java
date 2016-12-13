@@ -31,8 +31,8 @@ public int displayUser1(String username,String password ) throws SQLException,Cl
         ResultSet results = Statement.executeQuery(queryString);
 
         while (results.next()) {
-    username = results.getString();
-      password =  results.getString();
+         username = results.getString(user_ID);
+         password =  results.getString(user_ID);
 
            if ((username.equals(username)) && (password.equals(password))) {
 
@@ -46,9 +46,7 @@ public int displayUser1(String username,String password ) throws SQLException,Cl
 	}  
         catch (SQLException sql) {
 
-        out.println(sql);
-	
-	
+     	
 }
-    	
+}    	
 }

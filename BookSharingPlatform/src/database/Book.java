@@ -135,7 +135,7 @@ public class Book {
 	      
 	     
 	
-		String sql = "Delete From cs320_book where bookName = ' " + bookname+ " ' ;";
+		String sql = "Delete From cs320_book where bookName = '" + bookname+ "' ;";
 	    
                   
 	     stmt.executeUpdate(sql);
