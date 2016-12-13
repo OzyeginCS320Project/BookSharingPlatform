@@ -32,11 +32,9 @@ public class ButtonClicked extends HomePage implements ActionListener {
 			SearchBook search=new SearchBook();
 			search.displaySearchScreen();
 					
-		
-		
+				
 		}
 	}
 
-	
 
 }

@@ -1,11 +1,17 @@
 package gui;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import database.Book;
+
+
 
 public class DisplayBook {
 
@@ -13,6 +19,7 @@ public class DisplayBook {
 	private String bookName;
 	private JFrame bookFrame;
 	private JPanel bookPanel;
+	private JPanel buttonPanel;
 
 	
 
@@ -60,6 +67,19 @@ public class DisplayBook {
 		bookFrame.setVisible(true);
 		bookFrame.add(bookPanel);
 		bookFrame.setSize(500, 500);
+		
+		buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		
+		bookFrame.getContentPane().add(bookPanel, BorderLayout.NORTH);
+		bookFrame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+		
+		JButton addBook = new JButton("ADD BOOK");
+		JButton removeBook = new JButton("REMOVE BOOK");
+
+		buttonPanel.add(addBook);
+		buttonPanel.add(removeBook);
+
+		
 	}
 
 

@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -43,9 +41,6 @@ public class HomePage {
 	private JPanel textPanel;
 
 	
-
-
-
 	public void createLoginPage(){
 		userId = new JTextField();
 		passcode = new JPasswordField();
