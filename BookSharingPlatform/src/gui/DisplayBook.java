@@ -153,8 +153,6 @@ public class DisplayBook {
 		Book book=new Book(username,bookName,bookAuthor,bookPage);
 		book.addBook(book);
 
-
-
 	}
 
 
