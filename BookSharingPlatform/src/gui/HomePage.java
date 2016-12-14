@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import database.user;
+
 
 public class HomePage {
 
@@ -40,73 +42,91 @@ public class HomePage {
 
 	private JPanel textPanel;
 
-	
-	public void createLoginPage(){
+
+	public void displayLoginPage(){
+		
+		createLoginPage();
+		username=userId.getText();
+		password =  new String(passcode.getPassword());
+		user user =new user(username,password);
+		if(	user.getIsValidUser()) displayHomePage();
+
+	}
+
+
+	public void createLoginPage() {
+		
 		userId = new JTextField();
 		passcode = new JPasswordField();
-
 		userLabel=new JLabel("Username");
 		passwordLabel=new JLabel("Password");
 		final JComponent[] components = new JComponent[] {	userLabel,	userId,passwordLabel,passcode	};
-
 		JOptionPane.showMessageDialog(null, components, "Login",  JOptionPane.PLAIN_MESSAGE);
 
-		username=userId.getText();
+	}
 
-		password =  new String(passcode.getPassword());
-		if(checkValidationOfUser( username, password)) createHomePage();
+
+	public void displayHomePage(){
+
+		createHomePage();
+		createOptions();
+		addOptions();
+		textPanel.setBackground(Color.white);
+		optionPanel.setBackground(Color.darkGray);
+		enableOptions();
+
 
 	}
 
 
+	public void addOptions() {
+		frame.add(optionPanel,BorderLayout.SOUTH);
+		frame.add(textPanel,BorderLayout.CENTER);
+		textPanel.add(welcome);
 
-	//USERNAME AND PASSWORD CHECK-- hangi package?
+		optionPanel.add(displayBooksButton,new GridLayout());
+		optionPanel.add(displayMessageButton);
+		optionPanel.add(searchBookButton);
 
-	public boolean checkValidationOfUser(String username,String password){
-
-		return true;
 	}
 
 
+	public void enableOptions() {
 
-	public void createHomePage(){
+		displayBooksButton.addActionListener(new ButtonClicked());
+		displayMessageButton.addActionListener(new ButtonClicked());
+		searchBookButton.addActionListener(new ButtonClicked());
 
-		frame =new JFrame("Book Sharing Platform");
+
+	}
+
+
+	public void createOptions() {
+		displayBooksButton =new JButton("Display Your Books");
+		displayBooksButton.setBackground(Color.PINK);
+		displayMessageButton =new JButton("Display Your Messages");
+		displayMessageButton.setBackground(Color.pink);
+		searchBookButton =new JButton("Search a Book");
+		searchBookButton.setBackground(Color.pink);
+	}
+
+
+	public void createHomePage() {
+
+		frame =new JFrame("BOOK SHARING PLATFORM");
 		frame.setVisible(true);
 		frame.setSize(700, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		optionPanel = new JPanel();
 		textPanel=new JPanel();
-		optionPanel.setBackground(Color.GRAY);
 
 		welcome=new JLabel("WELCOME "+username.toUpperCase()+" !");
-		welcome.setForeground(Color.PINK);
+		welcome.setForeground(Color.BLUE);
 		welcome.setFont(new Font("Courier New", Font.BOLD, 50));
 
-		displayBooksButton =new JButton("Display Your Books");
-		displayBooksButton.setSize(100,100);
-		displayMessageButton =new JButton("Display Your Messages");
-		searchBookButton =new JButton("Search a Book");
-	
-
-		frame.add(optionPanel,BorderLayout.SOUTH);
-		frame.add(textPanel,BorderLayout.NORTH);
-		textPanel.add(welcome);
-
-		optionPanel.add(displayBooksButton,new GridLayout());
-		optionPanel.add(displayMessageButton);
-		
-		optionPanel.add(searchBookButton);
-		
-		displayBooksButton.addActionListener(new ButtonClicked());
-		displayMessageButton.addActionListener(new ButtonClicked());
-		searchBookButton.addActionListener(new ButtonClicked());
-
-		
 
 	}
-
 
 
 	public static String getUsername() {

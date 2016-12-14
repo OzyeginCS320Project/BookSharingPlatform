@@ -12,19 +12,19 @@ public class ButtonClicked implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		 		
-		
+				
 		if(event.getSource()==HomePage.getDisplayBookButton()) {
 			
 		//	DisplayBook frame
 		DisplayBook books=new DisplayBook();
-			books.createBookFrame(HomePage.getUsername());
+			books.displayBookFrame(HomePage.getUsername());
 			
 		}
 		
 		if(event.getSource()==HomePage.getDisplayMessageButton()){
 					
 	DisplayMessage messages = new DisplayMessage();
-			messages.createMessageFrame(HomePage.getUsername());
+			messages.displayMessageFrame(HomePage.getUsername());
 			
 		}
 		if(event.getSource()==HomePage.getSearchBookButton()){
@@ -65,8 +65,5 @@ public class ButtonClicked implements ActionListener {
 	}
 	
 	
-	
-	
-
 	
 }

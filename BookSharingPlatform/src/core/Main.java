@@ -9,8 +9,8 @@ public class Main {
 	public static void main(String [] args){
 
 
-		HomePage object=new HomePage();
-		object.createLoginPage();
+		HomePage home=new HomePage();
+		home.displayLoginPage();
 		
 
 	}
